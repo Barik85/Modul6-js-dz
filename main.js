@@ -8,7 +8,7 @@ let keyTrainer = {
         return (number - Math.ceil(number) === 0) && (number > 0);
     },
 
-    charCount : undefined,
+    charCount : null,
 
     setCharCount: function() {
         do {
@@ -17,22 +17,20 @@ let keyTrainer = {
         } while (!this.checkPositiveInteger(this.charCount));
     },
 
-    task : undefined,
+    task : [],
 
     createTask : function() {
-        let task = [];
         charCount = this.charCount;
         let i = 0;
         while (i < charCount) {
             let rand = Math.floor(Math.random()*this.chars.length);
-            task.push(this.chars[rand]);
+            this.task.push(this.chars[rand]);
             i++;
         }
-        this.task = task;
     },
 
     startTask : function() {
-        let userInput = undefined;
+        let userInput = null;
         do{
             userInput = prompt (`${this.task}. Наберите эти символы 
             (без запятых и пробелов)`);
